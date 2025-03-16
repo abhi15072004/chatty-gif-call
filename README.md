@@ -1,69 +1,104 @@
-# Welcome to your Lovable project
 
-## Project info
+# ABHI - Messaging App
 
-**URL**: https://lovable.dev/projects/bd58f309-6f20-4cae-b2f4-eec5e2107ccf
+ABHI is a modern messaging application that supports text messaging, voice calls, video calls, and sharing emojis and GIFs.
 
-## How can I edit this code?
+![ABHI App](public/og-image.png)
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- Real-time messaging
+- Voice and video calling capabilities
+- Contact management
+- Emoji and GIF support
+- Responsive design for all devices
+- Dark mode support
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/bd58f309-6f20-4cae-b2f4-eec5e2107ccf) and start prompting.
+## Live Demo
 
-Changes made via Lovable will be committed automatically to this repo.
+Access the live demo at: [https://bd58f309-6f20-4cae-b2f4-eec5e2107ccf.lovableproject.com](https://bd58f309-6f20-4cae-b2f4-eec5e2107ccf.lovableproject.com)
 
-**Use your preferred IDE**
+## How to Download and Run Locally
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Option 1: Clone from GitHub
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+# Step 1: Clone the repository
+git clone https://github.com/your-username/abhi-messaging-app.git
 
-Follow these steps:
+# Step 2: Navigate to the project directory
+cd abhi-messaging-app
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Step 3: Install dependencies
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Option 2: Download as ZIP
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. Visit the GitHub repository at [https://github.com/your-username/abhi-messaging-app](https://github.com/your-username/abhi-messaging-app)
+2. Click the green "Code" button and select "Download ZIP"
+3. Extract the ZIP file to your desired location
+4. Open a terminal in the extracted folder
+5. Run `npm install` to install dependencies
+6. Run `npm run dev` to start the development server
 
-**Use GitHub Codespaces**
+## Building for Production
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+# Build the app for production
+npm run build
 
-## What technologies are used for this project?
+# Preview the production build locally
+npm run preview
+```
 
-This project is built with .
+## Deploying to Your Own Server
+
+### Using Netlify
+
+1. Create an account on [Netlify](https://www.netlify.com/)
+2. Click "New site from Git"
+3. Connect your GitHub repository
+4. Configure build settings:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+5. Click "Deploy site"
+
+### Using Vercel
+
+1. Create an account on [Vercel](https://vercel.com/)
+2. Import your GitHub repository
+3. Configure project settings:
+   - Framework preset: Vite
+   - Build command: `npm run build`
+   - Output directory: `dist`
+4. Click "Deploy"
+
+## Technology Stack
 
 - Vite
 - TypeScript
 - React
-- shadcn-ui
+- React Router
 - Tailwind CSS
+- shadcn/ui
+- Lucide icons
 
-## How can I deploy this project?
+## License
 
-Simply open [Lovable](https://lovable.dev/projects/bd58f309-6f20-4cae-b2f4-eec5e2107ccf) and click on Share -> Publish.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## I want to use a custom domain - is that possible?
+## Contributing
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+1. Fork the repository
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request
+
+## Support
+
+For any questions or issues, please open an issue in the GitHub repository or contact the project maintainers directly.
