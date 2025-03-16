@@ -14,7 +14,7 @@ const Index: React.FC<IndexProps> = ({ activeTab = 'messages' }) => {
 
   useEffect(() => {
     // Set document title
-    document.title = 'Messaging App';
+    document.title = 'ABHI';
   }, []);
 
   return (

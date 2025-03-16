@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
       <div className="flex flex-row justify-around md:flex-col md:justify-start md:h-full items-center py-3 md:py-8 md:gap-8">
         <div className="md:mb-8 animate-float">
           <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white font-bold">
-            M
+            A
           </div>
         </div>
         
