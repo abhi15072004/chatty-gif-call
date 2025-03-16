@@ -22,6 +22,7 @@ const App = () => (
             <Route path="/calls" element={<Index activeTab="calls" />} />
             <Route path="/video" element={<Index activeTab="video" />} />
             <Route path="/contacts" element={<Index activeTab="contacts" />} />
+            <Route path="/files" element={<Index activeTab="files" />} />
             <Route path="/settings" element={<Index activeTab="settings" />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
