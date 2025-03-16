@@ -199,6 +199,7 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
 
     setConversations([...conversations, newConversation]);
+    return newConversation;
   };
 
   return (

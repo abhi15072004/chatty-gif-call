@@ -1,14 +1,14 @@
-
 import React, { useEffect } from 'react';
 import { useContacts } from '@/hooks/useContacts';
 import { useChat } from '@/context/ChatContext';
 import { Button } from '@/components/ui/button';
-import { Contact, Phone, UserPlus, RefreshCw, AlertCircle } from 'lucide-react';
+import { Contact, Phone, UserPlus, RefreshCw, AlertCircle, MessageCircle } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
+import { toast } from '@/components/ui/use-toast';
 
 const ContactsView: React.FC = () => {
   const { contacts, permissionStatus, isLoading, requestContactsPermission } = useContacts();
-  const { addContact } = useChat();
+  const { addContact, setActiveConversation, conversations } = useChat();
 
   useEffect(() => {
     // Check if we have permission or should request it
@@ -19,6 +19,35 @@ const ContactsView: React.FC = () => {
 
   const handleImportContact = (contact: { name: string }) => {
     addContact(contact.name);
+    toast({
+      title: "Contact Added",
+      description: `${contact.name} has been added to your contacts.`,
+    });
+  };
+
+  const handleMessageContact = (contact: { name: string }) => {
+    // First check if we already have a conversation with this contact
+    const existingConversation = conversations.find(
+      conv => conv.participants.some(p => p.name === contact.name)
+    );
+
+    if (existingConversation) {
+      // If conversation exists, set it as active
+      setActiveConversation(existingConversation);
+    } else {
+      // Otherwise, add the contact and create a new conversation
+      addContact(contact.name);
+      
+      // Find the newly created conversation
+      setTimeout(() => {
+        const newConversation = conversations.find(
+          conv => conv.participants.some(p => p.name === contact.name)
+        );
+        if (newConversation) {
+          setActiveConversation(newConversation);
+        }
+      }, 100); // Small timeout to allow state to update
+    }
   };
 
   if (permissionStatus === 'denied') {
@@ -109,14 +138,24 @@ const ContactsView: React.FC = () => {
                     )}
                   </div>
                   
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => handleImportContact(contact)}
-                    title="Import to ABHI"
-                  >
-                    <UserPlus className="w-4 h-4" />
-                  </Button>
+                  <div className="flex gap-1">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => handleMessageContact(contact)}
+                      title="Message"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => handleImportContact(contact)}
+                      title="Import to ABHI"
+                    >
+                      <UserPlus className="w-4 h-4" />
+                    </Button>
+                  </div>
                 </div>
               </div>
             ))}
